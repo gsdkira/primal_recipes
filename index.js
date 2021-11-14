@@ -11,8 +11,8 @@ const axios = require('axios')
 
 
 // views (ejs and layouts) set up
-app.set('view engine', 'ejs')
-app.use(ejsLayouts)
+app.set('view engine', 'ejs') //ejs
+app.use(ejsLayouts) //layouts
 
 // body parser middelware
 app.use(express.urlencoded({extended:false}))
@@ -45,10 +45,14 @@ app.use('/auth', require('./controllers/auth'))
 
 // home route
 app.get('/', (req, res)=>{
+    // console.log(axios)
     res.render('home')
 })
 
-// profile route
+// app.get('/ketoResults', (req,res)=>{
+//     res.render('ketoResults.ejs')
+// })
+// // profile route
 app.get('/profile', isLoggedIn, (req, res)=>{
     res.render('profile')
 })
