@@ -41,11 +41,10 @@ app.use((req, res, next) => {
 
 // controllers middleware 
 app.use('/auth', require('./controllers/auth'))
-
+app.use('/keto', require('./controllers/keto'))
 
 // home route
 app.get('/', (req, res)=>{
-    // console.log(axios)
     res.render('home')
 })
 
@@ -56,6 +55,7 @@ app.get('/', (req, res)=>{
 app.get('/profile', isLoggedIn, (req, res)=>{
     res.render('profile')
 })
+
 
 
 app.listen(3000, ()=>{
