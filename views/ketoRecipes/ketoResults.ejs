@@ -1,9 +1,15 @@
-<header>
-    <script src="https://developer.edamam.com/attribution/badge.js"></script>
-</header>
-
-<h1>Keto results</h1>
-
-<footer>
-<div id="edamam-badge" data-color="white"></div>
-</footer>
+<h1>Keto Recipe Results</h1>
+<%if(results === undefined) {%>
+    <h3>No Recipes Found</h3>
+    <small>Please try a different search</small>
+<%} else {%>
+    <ul>
+        <%results.forEach(function(result){%>
+            <li>
+                <a href="/keto/results<%=result.hits"%><%=result.recipe.label%></a>
+                <small>(<%=result.calories%>)</small>
+            </li>
+            <%})%>
+    </ul>    
+<%})%>
+    
