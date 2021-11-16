@@ -6,10 +6,9 @@
     <ul>
         <%results.forEach(function(result){%>
             <li>
-                <a href="/keto/results<%=result.hits"%><%=result.recipe.label%></a>
-                <small>(<%=result.calories%>)</small>
+                <a href="/results/<%=result.hits%>"><%=result.recipe.label%></a>
             </li>
             <%})%>
     </ul>    
-<%})%>
+<%}%>
     
