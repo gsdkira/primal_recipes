@@ -10,9 +10,9 @@ router.get('/results', function(req, res){
     // console.log(req.query.ketoResults)
    
 console.log('ketoResults')
-    axios.get(`https://api.edamam.com/api/recipes/v2?app_id=58a9c1a2&app_key=ab32153cf843d90e7bb4a956102855b5&q=pizza`)
+    axios.get(`https://api.edamam.com/api/recipes/v2?q=&app_id=58a9c1a2&app_key=ab32153cf843d90e7bb4a956102855b5&diet=low-carb`)
     .then(apiResults => {
-        console.log(apiResults.toJSON())
+        console.log(apiResults.data)
         // const results = apiResults.data
         res.render('ketoRecipes/ketoResults')
     })
