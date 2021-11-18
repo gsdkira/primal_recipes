@@ -6,7 +6,8 @@
     <ul>
         <%results.forEach(function(result){%>
             <li>
-                <a href="/results/<%=result.recipe.label%>"><%=result.recipe.label%></a>
+                <a href="<%=result%>"><%=result.recipe.label%></a>
+                
             </li>
             <%})%>
     </ul>    

@@ -7,6 +7,7 @@ const passport = require('./config/ppConfig')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
 const axios = require('axios')
+const methodOverride = require('method-override')
 
 
 
@@ -16,6 +17,7 @@ app.use(ejsLayouts) //layouts
 
 // body parser middelware
 app.use(express.urlencoded({extended:false}))
+app.use(methodOverride('_method'))
 
 // session middleware
 app.use(session({
@@ -42,6 +44,7 @@ app.use((req, res, next) => {
 // controllers middleware 
 app.use('/auth', require('./controllers/auth'))
 app.use('/keto', require('./controllers/keto'))
+
 
 // home route
 app.get('/', (req, res)=>{
