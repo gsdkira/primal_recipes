@@ -3,9 +3,9 @@
     <h3>No Recipes Found</h3>
     <small>Please try a different search</small>
 <%} else {%>
-    <ul>
+    
         <%results.forEach(function(result){%>
-            <li>
+           
                 <div class ="well">
                 <a href="/results/<%=result.recipe.url%>"><%=result.recipe.label%></a>
                 <form method = "POST" action="/profile">
@@ -13,8 +13,8 @@
                     <button class="btn btn-primary" type="submit">Add to favorite recipes</button>
                 </form>
             </div>
-            </li>
+            
             <%})%>
-    </ul>    
+      
 <%}%>
     
