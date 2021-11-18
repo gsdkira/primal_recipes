@@ -16,8 +16,6 @@ router.get('/results', isLoggedIn, function(req, res){
         const results = apiResults.data.hits
         console.log('these are the results', results)
         res.render('ketoRecipes/ketoResults', {results: results})
-        const myWindow = window.open("", "response", "resizable=yes");
-        myWindow.document.write(responseHtml);
     })
     .catch(error => {
         console.log(error)

@@ -6,8 +6,13 @@
     <ul>
         <%results.forEach(function(result){%>
             <li>
-                <a href="<%=result%>"><%=result.recipe.label%></a>
-                
+                <div class ="well">
+                <a href="/results/<%=result.recipe.url%>"><%=result.recipe.label%></a>
+                <form method = "POST" action="/profile">
+                    <input hidden type ="url" name ="name" value ="<%result.recipe.url%>">
+                    <button class="btn btn-primary" type="submit">Add to favorite recipes</button>
+                </form>
+            </div>
             </li>
             <%})%>
     </ul>    
