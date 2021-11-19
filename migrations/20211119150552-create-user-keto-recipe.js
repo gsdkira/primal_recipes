@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('userPaleoRecipes', {
+    await queryInterface.createTable('userKetoRecipes', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,11 +11,11 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER
       },
-      paleoRecipeUrl: {
-        type: Sequelize.TEXT
+      ketoRecipeUrl: {
+        type: Sequelize.STRING
       },
-      paleoRecipeLabel: {
-        type: Sequelize.TEXT
+      ketoRecipeLabel: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -28,6 +28,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('userPaleoRecipes');
+    await queryInterface.dropTable('userKetoRecipes');
   }
 };

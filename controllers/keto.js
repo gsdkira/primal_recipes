@@ -27,23 +27,17 @@ router.get('/search', isLoggedIn, function(req, res){
 })
 
 
-// //GEt saved keto recipes in profile
-// router.get('/results', isLoggedIn, (req, res) => {
-//     db.ketoRecipe.findAll()
-//     .then(saved => {
-//         res.render('profile')
-//     })
-// })
-
 
 router.post('/results', isLoggedIn, (req, res)=>{
     db.userKetoRecipe.create({
-        label: req.body.recipeLabel,
-        url: req.body.recipeUrl
+        ketoRecipeLabel: req.body.recipeLabel,
+        ketoRecipeUrl: req.body.recipeUrl,
+        userId: res.locals.currentUser.id
         // console.log(req.body.recipeLabel)
         // console.log(req.body.recipeUrl)
     })
     .then(createdFave =>{
+        console.log(createdFave)
         res.redirect('/profile')
     })
     .catch(err =>{

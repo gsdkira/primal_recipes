@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.user.belongsToMany(models.ketoRecipe, {through: 'userKetoRecipe'})
-      models.user.belongsToMany(models.paleoRecipe, {through: 'userPaleoRecipe'})
+      // models.user.belongsToMany(models.ketoRecipe, {through: 'userKetoRecipe'})
+      // models.user.belongsToMany(models.paleoRecipe, {through: 'userPaleoRecipe'})
     }
   };
   user.init({

@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   userKetoRecipe.init({
     userId: DataTypes.INTEGER,
-    ketoRecipeLabel: DataTypes.TEXT,
-    ketoRecipeUrl: DataTypes.TEXT
+    ketoRecipeUrl: DataTypes.STRING,
+    ketoRecipeLabel: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'userKetoRecipe',

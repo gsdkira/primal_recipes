@@ -1,22 +1,23 @@
 const express = require('express')
 const router = express.Router()
-const isLoggedIn = require('./middleware/isLoggedIn')
+// const isLoggedIn = require('./middleware/isLoggedIn')
 const axios = require('axios')
+const db = require('../models')
 const methodOverride = require('method-override')
 
 
-router.get('/', isLoggedIn, (req, res)=>{
-    db.ketoRecipe.findAll()
+router.get('/', (req, res)=>{
+    db.userKetoRecipe.findAll()
         .then(recipe =>{
     res.render('profile', {recipe})
     })
 })
 
-router.post('/', isLoggedIn, (req, res)=>{
-    console.log(req.query.recipe)
-    console.log(req.body)
-    res.redirect('/')
-})
+// router.post('/', isLoggedIn, (req, res)=>{
+//     console.log(req.query.recipe)
+//     console.log(req.body)
+//     res.redirect('/')
+// })
 
 // router.get('/', isLoggedIn, (req, res) => {
 //     db.ketoRecipe.findAll()

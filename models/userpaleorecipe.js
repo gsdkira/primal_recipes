@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   userPaleoRecipe.init({
     userId: DataTypes.INTEGER,
-    ketoRecipeId: DataTypes.INTEGER
+    paleoRecipeUrl: DataTypes.STRING,
+    paleoRecipeLabel: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'userPaleoRecipe',

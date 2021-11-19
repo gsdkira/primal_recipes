@@ -5,17 +5,16 @@
 <%} else {%>
     
         <%results.forEach(function(result){%>
-           <ul>
-                <div class ="well">
-                    <form method = "POST" action="/keto/results">
-                <a href="<%=result.recipe.url%>" target="_blank"><%=result.recipe.label%></a>
+        <ul>
+            <div class ="well">
+                <form method = "POST" action="/keto/results">
+                    <a href="<%=result.recipe.url%>" target="_blank"><%=result.recipe.label%></a>
                     <input hidden type ="text" name ="recipeUrl" value ="<%=result.recipe.url%>">
                     <input hidden type ="text" name ="recipeLabel" value ="<%=result.recipe.label%>">
                     <button type="submit">Add to favorite recipes</button>
                 </form>
             </div>
         </ul>
-            <%})%>
-      
+     <%})%>
 <%}%>
     

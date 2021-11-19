@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 // controllers middleware 
 app.use('/auth', require('./controllers/auth'))
 app.use('/keto', require('./controllers/keto'))
-// app.use('/profile', require('./controllers/userProfile'))
+app.use('/profile', isLoggedIn, require('./controllers/userProfile'))
 
 
 // home route
@@ -54,9 +54,9 @@ app.get('/', (req, res)=>{
 
 
 // profile route
-app.get('/profile', isLoggedIn, (req, res)=>{
-    res.render('profile')
-})
+// app.get('/profile', isLoggedIn, (req, res)=>{
+//     res.render('profile')
+// })
 
 // app.post('/profile', isLoggedIn, (req, res)=>{
 //     console.log(req.body)
