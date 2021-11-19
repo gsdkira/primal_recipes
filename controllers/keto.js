@@ -45,5 +45,17 @@ router.post('/results', isLoggedIn, (req, res)=>{
     })
 })
 
+router.delete('/:id', (req, res) =>{
+    db.userKetoRecipe.destroy ({
+        where: {id: req.params.id}
+    })
+    .then(deletedItem => {
+        res.redirect('/profile')
+    })
+    .catch(error =>{
+        console.log(error)
+    })
+})
+
 
 module.exports = router

@@ -7,6 +7,10 @@
 <ul>
     <li>
         <a href="<%=result.ketoRecipeUrl%>" target="_blank">"<%=result.ketoRecipeLabel%></a>
+        <form>
+            <form action ="/profile/<%= result.ketoRecipeUrl %>?_method=DELETE" method ="POST">
+            <button type ="submit">Remove Recipe Link from Favorites</button>
+        </form>
     </li>
 </ul>
 <%})%>

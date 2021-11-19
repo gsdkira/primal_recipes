@@ -3,7 +3,7 @@ const router = express.Router()
 // const isLoggedIn = require('./middleware/isLoggedIn')
 const axios = require('axios')
 const db = require('../models')
-const methodOverride = require('method-override')
+
 
 
 router.get('/', (req, res)=>{
@@ -16,32 +16,18 @@ router.get('/', (req, res)=>{
     })
 })
 
-// router.post('/', isLoggedIn, (req, res)=>{
-//     console.log(req.query.recipe)
-//     console.log(req.body)
-//     res.redirect('/')
-// })
+router.delete('/:id', (req, res) =>{
+    db.userKetoRecipe.destroy ({
+        where: {id: req.params.id}
+    })
+    .then(deletedItem => {
+        res.redirect('/profile')
+    })
+    .catch(error =>{
+        console.log(error)
+    })
+})
 
-// router.get('/', isLoggedIn, (req, res) => {
-//     db.ketoRecipe.findAll()
-//     .then(recipe =>{
-//         res.render('profile', {results: recipe})
-//     })
-// })
-
-
-// router.post('/', isLoggedIn, (req, res) => {
-//     console.log(req.body.recipe)
-//     db.ketoRecipe.create({
-//         url = apiRes.data.hits.recipe.url
-//     })
-//     .then(createdFave =>{
-//         res.redirect('/profile')
-//     })
-//     .catch(error => {
-//         console.log(error)
-//     })
-// })
 
 // Get route that will display saved recipes
 // router.get('/', (req, res)=>{
