@@ -7,9 +7,12 @@ const methodOverride = require('method-override')
 
 
 router.get('/', (req, res)=>{
-    db.userKetoRecipe.findAll()
-        .then(recipe =>{
-    res.render('profile', {recipe})
+    db.userKetoRecipe.findAll({
+        where: {userId: res.locals.currentUser.id}
+    })
+        .then(foundUser =>{
+    res.render('profile', {foundUser})
+    // console.log(recipe)
     })
 })
 

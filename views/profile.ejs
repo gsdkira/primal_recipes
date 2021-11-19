@@ -2,7 +2,11 @@
 
 <h1>All Your Favorite  Keto Recipes</h1>
 
-
-<a href="<%=recipe.ketoRecipeUrl%>" target="_blank"><%=recipe%></a>
-
-
+<%foundUser.forEach(function(result) {%>
+<%=foundUser.ketoRecipeUrl%><%=foundUser.ketoRecipeLabel%>
+<ul>
+    <li>
+        <a href="<%=result.ketoRecipeUrl%>" target="_blank">"<%=result.ketoRecipeLabel%></a>
+    </li>
+</ul>
+<%})%>
