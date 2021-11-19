@@ -11,8 +11,11 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER
       },
-      ketoRecipeId: {
-        type: Sequelize.INTEGER
+      paleoRecipeUrl: {
+        type: Sequelize.TEXT
+      },
+      paleoRecipeLabel: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
