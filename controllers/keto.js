@@ -4,6 +4,7 @@ const axios = require('axios')
 const { route } = require('./auth')
 const isLoggedIn = require('../middleware/isLoggedIn')
 const db = require('../models')
+const methodOverride = require('method-override')
 
 //this is our route for keto recipe results
 
@@ -45,12 +46,35 @@ router.post('/results', isLoggedIn, (req, res)=>{
     })
 })
 
-router.delete('/:id', (req, res) =>{
-    db.userKetoRecipe.destroy ({
-        where: {id: req.params.id}
+// router.get('/profile/edit/:id', (req, res)=>{
+//     db.userKetoRecipe.findOne({
+
+//     }
+// })
+
+// router.put('/:id', (req, res)=>{
+//     db.userKetoRecipe.findOne({
+//         where: {
+//             id:req.params.id
+//         }
+//     })
+//     .then(foundRecipe =>{
+//         res.redirect('/profile')
+//     })
+//     .catch(error =>{
+//         console.log(error)
+//     })
+// })
+
+router.delete('/:id',isLoggedIn, (req, res) => {
+    db.userKetoRecipe.destroy({
+        where: {
+            id:req.params.id
+        }
     })
-    .then(deletedItem => {
-        res.redirect('/profile')
+    .then(destroyedRecipe => {
+        console.log('you removed destroyed recipe', destroyedRecipe)
+        res.redirect('/profile')         
     })
     .catch(error =>{
         console.log(error)

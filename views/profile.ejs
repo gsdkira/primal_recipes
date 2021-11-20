@@ -2,15 +2,20 @@
 
 <h1>All Your Favorite  Keto Recipes</h1>
 
-<%foundUser.forEach(function(result) {%>
-<%=foundUser.ketoRecipeUrl%><%=foundUser.ketoRecipeLabel%>
+<%foundUser.forEach(result => {%>
 <ul>
     <li>
-        <a href="<%=result.ketoRecipeUrl%>" target="_blank">"<%=result.ketoRecipeLabel%></a>
-        <form>
-            <form action ="/profile/<%= result.ketoRecipeUrl %>?_method=DELETE" method ="POST">
-            <button type ="submit">Remove Recipe Link from Favorites</button>
+        <a href="<%=result.ketoRecipeUrl%>" target="_blank"><%=result.ketoRecipeLabel%></a>
+        <a href="/profile/<%= result.id%>">Edit</a>
+        <div><%=result.id%></div>
+        <form action="/profile/<%= result.id%>/?_method=DELETE" method="POST">
+                
+            <input type ="submit" value="Delete this Recipe Link">
         </form>
+        <form action="">
+
+        </form>
+
     </li>
 </ul>
 <%})%>
