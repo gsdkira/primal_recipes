@@ -6,14 +6,14 @@
 <ul>
     <li>
         <a href="<%=result.ketoRecipeUrl%>" target="_blank"><%=result.ketoRecipeLabel%></a>
-        <a href="/profile/<%= result.id%>">Edit</a>
-        <div><%=result.id%></div>
         <form action="/profile/<%= result.id%>/?_method=DELETE" method="POST">
-                
             <input type ="submit" value="Delete this Recipe Link">
         </form>
-        <form action="">
 
+        <form action="/profile/<%= result.id %>/?_method=PUT" method="POST">
+            <label for="ketoRecipeLabel">Keto Recipe Name</label>
+            <input type="text" id="ketoRecipeLabel" name="ketoRecipeLabel" value="<%=result.ketoRecipeLabel%>">
+            <input type="submit" value="Edit the name to your Liking">
         </form>
 
     </li>

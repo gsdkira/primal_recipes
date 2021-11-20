@@ -6,8 +6,8 @@ const isLoggedIn = require('../middleware/isLoggedIn')
 const db = require('../models')
 const methodOverride = require('method-override')
 
-//this is our route for keto recipe results
 
+//this is our route for keto recipe results
 router.get('/results', isLoggedIn, function(req, res){
     let ketoResults = req.query.ketoResults
 // console.log('ketoResults')
@@ -15,7 +15,7 @@ router.get('/results', isLoggedIn, function(req, res){
     .then(apiResults => {
         // console.log(apiResults.data.hits)
         const results = apiResults.data.hits
-        console.log('these are the results', results)
+        // console.log('these are the results', results)
         res.render('ketoRecipes/ketoResults', {results: results})
     })
     .catch(error => {
@@ -23,12 +23,14 @@ router.get('/results', isLoggedIn, function(req, res){
     })
 })
 
+
+//this is the route for serch bar. 
 router.get('/search', isLoggedIn, function(req, res){
     res.render('ketoRecipes/ketoRecipeSearch')
 })
 
 
-
+//this is the route to add to userketorecipe dB
 router.post('/results', isLoggedIn, (req, res)=>{
     db.userKetoRecipe.create({
         ketoRecipeLabel: req.body.recipeLabel,
@@ -45,41 +47,5 @@ router.post('/results', isLoggedIn, (req, res)=>{
         console.log(err)
     })
 })
-
-// router.get('/profile/edit/:id', (req, res)=>{
-//     db.userKetoRecipe.findOne({
-
-//     }
-// })
-
-// router.put('/:id', (req, res)=>{
-//     db.userKetoRecipe.findOne({
-//         where: {
-//             id:req.params.id
-//         }
-//     })
-//     .then(foundRecipe =>{
-//         res.redirect('/profile')
-//     })
-//     .catch(error =>{
-//         console.log(error)
-//     })
-// })
-
-router.delete('/:id',isLoggedIn, (req, res) => {
-    db.userKetoRecipe.destroy({
-        where: {
-            id:req.params.id
-        }
-    })
-    .then(destroyedRecipe => {
-        console.log('you removed destroyed recipe', destroyedRecipe)
-        res.redirect('/profile')         
-    })
-    .catch(error =>{
-        console.log(error)
-    })
-})
-
 
 module.exports = router

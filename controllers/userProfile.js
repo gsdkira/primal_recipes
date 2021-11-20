@@ -6,7 +6,7 @@ const db = require('../models')
 const methodOverride = require('method-override')
 
 
-
+// this is route to get all favorite recipes from user
 router.get('/', (req, res)=>{
     db.userKetoRecipe.findAll({
         where: {userId: res.locals.currentUser.id}
@@ -18,6 +18,23 @@ router.get('/', (req, res)=>{
     })
 })
 
+//this is the route to get the one favorite recipe from user to edit
+router.get('/', isLoggedIn, function(req, res){
+    console.log('this is getting for editing')
+    db.userKetoRecipe.findOne({
+        where: {
+            ketoRecipeLabel: req.body.recipeLabel
+            }
+        })
+        .then(findRecipe =>{
+            console.log(findRecipe)
+    res.render('profile', {findRecipe})
+    // console.log(recipe)
+    })
+})
+
+
+//this is the route to delete recipe from user favorite
 router.delete('/:id',isLoggedIn, (req, res) => {
     db.userKetoRecipe.destroy({
         where: {
@@ -33,61 +50,21 @@ router.delete('/:id',isLoggedIn, (req, res) => {
     })
 })
 
-router.put('/:id', (req, res)=>{
+
+//this is to put edited recipe name to favorite list
+router.put('/', (req, res)=>{
     db.userKetoRecipe.findOne({
         where: {
-            id:req.params.id
+            ketoRecipeLabel: req.body.recipeLabel
         }
     })
     .then(foundRecipe =>{
-        res.redirect('/profile')
+        res.render('/')
     })
     .catch(error =>{
         console.log(error)
     })
 })
 
-// router.delete('/:id', (req, res) =>{
-//     db.userKetoRecipe.destroy ({
-//         where: {
-//             ketoRecipeLabel: req.body.recipeLabel,
-//             ketoRecipeUrl: req.body.recipeUrl,
-//             userId: res.locals.currentUser.id
-//         }
-//     })
-//     .then(deletedItem => {
-//         res.redirect('/profile')
-//     })
-//     .catch(error =>{
-//         console.log(error)
-//     })
-// })
-
-// Get route that will display saved recipes
-// router.get('/', (req, res)=>{
-//     db.userKetoRecipe.findAll ({
-//     where: {userId:req.params.userId}
-// })
-//     .then(found =>{
-//         res.render('profile', {currentUser: req.params.userId, results:found})
-//     })
-// })
-
-
-
-// post route that will save a recipe url  to a userKetoRecipe
-// router.post('/:url', isLoggedIn, (req, res) => {
-//     const formData = req.body.url
-//     console.log(req.body.url)
-//     // db.ketoRecipe.findOne({
-//     //     where: { url: req.params.url }
-//     // })
-//     //     .then(savedCreated => {
-//     //         res.redirect('/profile', savedCreated)
-//     //     })
-//     //     .catch(error => {
-//     //         console.log(error)
-//     //     })
-// })
 
 module.exports = router

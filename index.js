@@ -45,6 +45,7 @@ app.use((req, res, next) => {
 app.use('/auth', require('./controllers/auth'))
 app.use('/keto', require('./controllers/keto'))
 app.use('/profile', isLoggedIn, require('./controllers/userProfile'))
+app.use('/paleo', require('./controllers/paleo'))
 
 
 // home route

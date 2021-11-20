@@ -5,26 +5,26 @@ const { route } = require('./auth')
 const isLoggedIn = require('../middleware/isLoggedIn')
 const db = require('../models')
 
-//this is our route for paleo recipe results
+// this is our route for paleo recipe results
 
-// router.get('/results', isLoggedIn, function(req, res){
-//     let paleoResults = req.query.paleoResults
-// // console.log('ketoResults')
-//     axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${ketoResults}&app_id=58a9c1a2&app_key=ab32153cf843d90e7bb4a956102855b5&diet=low-carb&health=paleo`)
-//     .then(apiResults => {
-//         // console.log(apiResults.data.hits)
-//         const results = apiResults.data.hits
-//         console.log('these are the results', results)
-//         res.render('paleoRecipes/paleoResults', {results: results})
-//     })
-//     .catch(error => {
-//         console.log(error)
-//     })
-// })
+router.get('/results', isLoggedIn, function(req, res){
+    let paleoResults = req.query.paleoResults
+// console.log('ketoResults')
+    axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${paleoResults}&app_id=58a9c1a2&app_key=ab32153cf843d90e7bb4a956102855b5&diet=low-carb&health=paleo`)
+    .then(paleoApiResults => {
+        // console.log(apiResults.data.hits)
+        const pResults = paleoApiResults.data.hits
+        console.log('these are the results', pResults)
+        res.render('paleoRecipes/paleoResults', {pResults: pResults})
+    })
+    .catch(error => {
+        console.log(error)
+    })
+})
 
-// router.get('/search', isLoggedIn, function(req, res){
-//     res.render('paleoRecipes/paleoRecipeSearch')
-// })
+router.get('/search', isLoggedIn, function(req, res){
+    res.render('paleoRecipes/paleoRecipeSearch')
+})
 
 
 
