@@ -19,18 +19,6 @@ router.get('/', isLoggedIn, (req, res) => {
         })
 })
 
-// this is the route to get all favorite paleo recipes from user
-// router.get('/', isLoggedIn, (req, res) => {
-//     db.userPaleoRecipe.findAll({
-//         where: { userId: res.locals.currentUser.id }
-//     })
-//         .then(paleoFoundUser => {
-//             console.log(paleoFoundUser)
-//             res.render('profile', { paleoFoundUser })
-//             // console.log(recipe)
-//         })
-// })
-
 
 
 //this is the route to get the one favorite keto recipe from user to edit
@@ -71,28 +59,20 @@ router.delete('/:id', isLoggedIn, (req, res) => {
 
 //this is to put edited recipe name to favorite list
 router.put('/:id', isLoggedIn, (req, res) => {
-    db.userKetoRecipe.findOne({
-        where: {
-            id: req.params.id
-        }
-    })
-        .then(foundRecipe => {
-            console.log('This is found recipe', foundRecipe)
-            foundRecipe.update({
-                ketoRecipeLabel: req.body.recipeLabel
+    console.log(req.body)
+            db.userKetoRecipe.update({
+                ketoRecipeLabel: req.body.ketoRecipeLabel
             }, {
                 where: {
                     id: req.params.id
-            }
-        })
-            foundRecipe.save()
-            res.redirect('/')
-        })
-        .catch(error => {
-            console.log(error)
-        })
-})
+                }
+            })
+            .then(foundRecipe => {
+                console.log(foundRecipe)
+                res.redirect('/profile')
 
+            })
+        })
 
 
 

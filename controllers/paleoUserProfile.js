@@ -19,4 +19,56 @@ router.get('/', isLoggedIn, (req, res) => {
         })
 })
 
+router.get('/', isLoggedIn, (req, res) => {
+    // console.log('this is getting for editing')
+    db.userpaleoRecipe.findOne({
+        where: {
+            paleoRecipeLabel: req.body.pRecipeLabel
+        }
+    })
+        .then(findPaleoRecipe => {
+            console.log(findPaleoRecipe)
+            res.render('profile', { findPaleoRecipe })
+            // console.log(recipe)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+})
+
+
+//this is the route to delete keto recipe from user favorite
+router.delete('/:id', isLoggedIn, (req, res) => {
+    db.userPaleoRecipe.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(destroyedPaleoRecipe => {
+            console.log('you removed destroyed recipe', destroyedPaleoRecipe)
+            res.redirect('/paleoProfile')
+        })
+        .catch(error => {
+            console.log(error)
+        })
+})
+
+
+//this is to put edited recipe name to favorite list
+router.put('/:id', isLoggedIn, (req, res) => {
+    console.log(req.body)
+            db.userPaleoRecipe.update({
+                paleoRecipeLabel: req.body.paleoRecipeLabel
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(foundPaleoRecipe => {
+                console.log(foundPaleoRecipe)
+                res.redirect('/paleoProfile')
+
+            })
+        })
+
 module.exports = router
