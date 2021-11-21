@@ -1,0 +1,19 @@
+<h1>Paleo Recipe Results</h1>
+<%if(pResults === undefined) {%>
+    <h3>No Recipes Found</h3>
+    <small>Please try a different search</small>
+<%} else {%>
+    
+        <%pResults.forEach(function(pResult){%>
+        <ul>
+            <div class ="well">
+                <form method = "POST" action="/paleo/results">
+                    <a href="<%=pResult.recipe.url%>" target="_blank"><%=pResult.recipe.label%></a>
+                    <input hidden type ="text" name ="pRecipeUrl" value ="<%=pResult.recipe.url%>">
+                    <input hidden type ="text" name ="pRecipeLabel" value ="<%=pResult.recipe.label%>">
+                    <button type="submit">Add Recipe Link to your Favorites List</button>
+                </form>
+            </div>
+        </ul>
+     <%})%>
+<%}%>
