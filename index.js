@@ -44,8 +44,9 @@ app.use((req, res, next) => {
 // controllers middleware 
 app.use('/auth', require('./controllers/auth'))
 app.use('/keto', require('./controllers/keto'))
-app.use('/profile', isLoggedIn, require('./controllers/userProfile'))
+app.use('/profile', require('./controllers/userProfile'))
 app.use('/paleo', require('./controllers/paleo'))
+app.use('/paleoUserProfile', require('./controllers/paleoUserProfile'))
 
 
 // home route

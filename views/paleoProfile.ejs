@@ -1,0 +1,22 @@
+<h1>All Your Favorite Paleo Recipes</h1>
+
+    <%paleoFoundUser.forEach(paleoResult=> {%>
+        <ul>
+            <li>
+                <a href="<%=paleoResult.paleoRecipeUrl%>" target="_blank">
+                    <%=paleoResult.paleoRecipeLabel%>
+                </a>
+                <form action="/paleoprofile/<%= paleoResult.id%>/?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete this Paleo Recipe Link">
+                </form>
+
+                <form action="/paleoProfile/<%= paleoResult.id %>/?_method=PUT" method="POST">
+                    <label for="paleoRecipeLabel">Paleo Recipe Name</label>
+                    <input type="text" id="paleoRecipeLabel" name="paleoRecipeLabel" value="<%=paleoResult.paleoRecipeLabel%>">
+                    <input type="submit" value="Edit the name to your Liking">
+                </form>
+
+
+            </li>
+        </ul>
+        <%})%>

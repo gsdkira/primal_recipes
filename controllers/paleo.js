@@ -12,9 +12,9 @@ router.get('/results', isLoggedIn, function(req, res){
 // console.log('ketoResults')
     axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${paleoResults}&app_id=58a9c1a2&app_key=ab32153cf843d90e7bb4a956102855b5&health=paleo`)
     .then(paleoApiResults => {
-        // console.log(apiResults.data.hits)
+        // console.log(paleoApiResults.data.hits)
         const pResults = paleoApiResults.data.hits
-        console.log('these are the results', pResults)
+        console.log('these are the results paleo results', pResults)
         res.render('paleoRecipes/paleoResults', {pResults: pResults})
     })
     .catch(error => {
@@ -22,12 +22,14 @@ router.get('/results', isLoggedIn, function(req, res){
     })
 })
 
+
+//this is the route for the paleo search bar
 router.get('/search', isLoggedIn, function(req, res){
     res.render('paleoRecipes/paleoRecipeSearch')
 })
 
 
-
+//this is the route for the paleo results page
 router.post('/results', isLoggedIn, (req, res)=>{
     db.userPaleoRecipe.create({
         paleoRecipeLabel: req.body.pRecipeLabel,
@@ -38,14 +40,12 @@ router.post('/results', isLoggedIn, (req, res)=>{
     })
     .then(paleoCreatedFave =>{
         console.log(paleoCreatedFave)
-        res.redirect('/profile')
+        res.redirect('/paleoProfile')
     })
     .catch(err =>{
         console.log(err)
     })
 })
-
-
 
 
 module.exports = router
