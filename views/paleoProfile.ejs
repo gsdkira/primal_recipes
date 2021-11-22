@@ -1,35 +1,37 @@
 <div class="container-fluid">
-<h3>
-    <%= currentUser.name %>'s Profile
-</h3>
+    <h3>
+        <%= currentUser.name %>'s Profile
+    </h3>
 
-<h2>All Your Favorite Paleo Recipes</h2>
-<h4>
-    Edit the Name of the Recipe to Remind you Which One is your Favorite
-</h4>
+    <h2>All Your Favorite Paleo Recipes</h2>
+    <h4>
+        Edit the Name of the Recipe to Remind you Which One is your Favorite
+    </h4>
 
     <%paleoFoundUser.forEach(paleoResult=> {%>
-        <div class ="well">
-        
-        <ul>
-            <div class="list-group">
-            <li>
-                <a href="<%=paleoResult.paleoRecipeUrl%>" class="list-group-item list-group-item-action list-group-item-light" target="_blank">
-                    <%=paleoResult.paleoRecipeLabel%>
-                </a>
-                <form action="/paleoprofile/<%= paleoResult.id%>/?_method=DELETE" method="POST">
-                    <input type="submit" value="Delete this Paleo Recipe Link">
-                </form>
+        <div class="well">
 
-                <form action="/paleoProfile/<%= paleoResult.id %>/?_method=PUT" method="POST">
-                    <label for="paleoRecipeLabel">Paleo Recipe Name</label>
-                    <input type="text" id="paleoRecipeLabel" name="paleoRecipeLabel" value="<%=paleoResult.paleoRecipeLabel%>">
-                    <input type="submit" value="Edit the name to your Liking">
-                </form>
+            <ul>
+                <div class="list-group">
+                    <li>
+                        <a href="<%=paleoResult.paleoRecipeUrl%>"
+                            class="list-group-item list-group-item-action list-group-item-light" target="_blank">
+                            <%=paleoResult.paleoRecipeLabel%>
+                        </a>
+                        <form action="/paleoprofile/<%= paleoResult.id%>/?_method=DELETE" method="POST">
+                            <input type="submit" value="Delete this Paleo Recipe Link">
+                        </form>
+
+                        <form action="/paleoProfile/<%= paleoResult.id %>/?_method=PUT" method="POST">
+                            <label for="paleoRecipeLabel">Paleo Recipe Name</label>
+                            <input type="text" id="paleoRecipeLabel" name="paleoRecipeLabel"
+                                value="<%=paleoResult.paleoRecipeLabel%>">
+                            <input type="submit" value="Edit the Recipe Name to your Liking">
+                        </form>
 
 
-            </li>
-        </ul>
+                    </li>
+            </ul>
         </div>
         <%})%>
-    </div>
+</div>

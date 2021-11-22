@@ -1,24 +1,28 @@
 <div class="container-fluid">
-<h2>Results for Keto Recipes</h2>
-<h4>Click on Recipe Link to check out Keto Recipe</h4>
-<%if(results === undefined) {%>
-    <h3>No Recipes Found</h3>
-    <small>Please try a different search</small>
-<%} else {%>
-    
-        <%results.forEach(function(result){%>
-        <ul>
-            <li>
-            <div class="list-group">
-                <form method = "POST" action="/keto/results">
-                    <a href="<%=result.recipe.url%>"class="list-group-item list-group-item-action list-group-item-light"  target="_blank"><%=result.recipe.label%></a>
-                    <input hidden type ="text" name ="recipeUrl" value ="<%=result.recipe.url%>">
-                    <input hidden type ="text" name ="recipeLabel" value ="<%=result.recipe.label%>">
-                    <button type="submit">Add Recipe Link to your Favorites List</button>
-                </form>
-            </div>
-        </li>
-        </ul>
-     <%})%>
-<%}%>
+    <h2>Results for Keto Recipes</h2>
+    <h4>Click on Recipe Link to check out Keto Recipe</h4>
+    <%if(results===undefined) {%>
+        <h3>No Recipes Found</h3>
+        <small>Please try a different search</small>
+        <%} else {%>
+
+            <%results.forEach(function(result){%>
+                <ul>
+                    <li>
+                        <div class="list-group">
+                            <form method="POST" action="/keto/results">
+                                <a href="<%=result.recipe.url%>"
+                                    class="list-group-item list-group-item-action list-group-item-light"
+                                    target="_blank">
+                                    <%=result.recipe.label%>
+                                </a>
+                                <input hidden type="text" name="recipeUrl" value="<%=result.recipe.url%>">
+                                <input hidden type="text" name="recipeLabel" value="<%=result.recipe.label%>">
+                                <button type="submit">Add Recipe Link to your Favorites List</button>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+                <%})%>
+            <%}%>
 </div>

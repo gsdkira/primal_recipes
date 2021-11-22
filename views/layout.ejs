@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <title>Primal Recipe Collector</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <title>Primal Recipe Collector</title>
 </head>
+
 <body>
-  <div class="bg-image"
-  style="background-image: url('https://images.pexels.com/photos/8581015/pexels-photo-8581015.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  <div class="bg-image" style="background-image: url('https://images.pexels.com/photos/8581015/pexels-photo-8581015.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
                 height: 500px;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
                 height: 100vh">
-    
-  
+
+
     <header>
-        <nav>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <% if (!currentUser) { %>
-                <li><a href="/auth/signup">Signup</a></li>
-                <li><a href="/auth/login">Login</a></li>
-              <% } else { %>
-                <li><a href="/auth/logout">Logout</a></li>
-                <li><a href="/profile">Keto Recipe Collection</a></li>
-                <li><a href="/paleoProfile">Paleo Recipe Collection</a></li>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <% if (!currentUser) { %>
+            <li><a href="/auth/signup">Signup</a></li>
+            <li><a href="/auth/login">Login</a></li>
+            <% } else { %>
+              <li><a href="/auth/logout">Logout</a></li>
+              <li><a href="/profile">Keto Recipe Collection</a></li>
+              <li><a href="/paleoProfile">Paleo Recipe Collection</a></li>
               <% } %>
-            </ul>
-          </nav
-    </header>
-    <%- include('partials/alerts') %>
-    <%- body %> 
+        </ul>
+      </nav </header>
+      <%- include('partials/alerts') %>
+        <%- body %>
 </body>
+
 </html>

@@ -1,35 +1,35 @@
 <div class="container-fluid">
-<h3>
-    <%= currentUser.name %>'s Profile
-</h3>
+    <h3>
+        <%= currentUser.name %>'s Profile
+    </h3>
 
-<h2>All Your Favorite Keto Recipes</h1>
-    <h4>
-        Edit the Name of the Recipe to Remind you Which One is your Favorite
-    </h4>
+    <h2>All Your Favorite Keto Recipes</h1>
+        <h4>
+            Edit the Name of the Recipe to Remind you Which One is your Favorite
+        </h4>
 
-    <%foundUser.forEach(result=> {%>
-        <div class ="well">
-        <ul>
-            <div class="list-group">
-            <li>
-                <a href="<%=result.ketoRecipeUrl%>" class="list-group-item list-group-item-action list-group-item-light" target="_blank">
-                    <%=result.ketoRecipeLabel%>
-                </a>
-                <form action="/profile/<%= result.id%>/?_method=DELETE" method="POST">
-                    <input type="submit" value="Delete this Keto Recipe Link">
-                </form>
+        <%foundUser.forEach(result=> {%>
+            <div class="well">
+                <ul>
+                    <div class="list-group">
+                        <li>
+                            <a href="<%=result.ketoRecipeUrl%>"
+                                class="list-group-item list-group-item-action list-group-item-light" target="_blank">
+                                <%=result.ketoRecipeLabel%>
+                            </a>
+                            <form action="/profile/<%= result.id%>/?_method=DELETE" method="POST">
+                                <input type="submit" value="Delete this Keto Recipe Link">
+                            </form>
 
-                <form action="/profile/<%= result.id %>/?_method=PUT" method="POST">
-                    <label for="ketoRecipeLabel">Keto Recipe Name</label>
-                    <input type="text" id="ketoRecipeLabel" name="ketoRecipeLabel" value="<%=result.ketoRecipeLabel%>">
-                    <input type="submit" value="Edit the recipe name to your Liking">
-                </form>
+                            <form action="/profile/<%= result.id %>/?_method=PUT" method="POST">
+                                <label for="ketoRecipeLabel">Keto Recipe Name</label>
+                                <input type="text" id="ketoRecipeLabel" name="ketoRecipeLabel"
+                                    value="<%=result.ketoRecipeLabel%>">
+                                <input type="submit" value="Edit the recipe name to your Liking">
+                            </form>
 
-            </li>
-        </ul>
-    </div>
-        <%})%>
-    </div>
-
-
+                        </li>
+                </ul>
+            </div>
+            <%})%>
+</div>
