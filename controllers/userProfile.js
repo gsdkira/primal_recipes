@@ -60,19 +60,19 @@ router.delete('/:id', isLoggedIn, (req, res) => {
 //this is to put edited recipe name to favorite list
 router.put('/:id', isLoggedIn, (req, res) => {
     console.log(req.body)
-            db.userKetoRecipe.update({
-                ketoRecipeLabel: req.body.ketoRecipeLabel
-            }, {
-                where: {
-                    id: req.params.id
-                }
-            })
-            .then(foundRecipe => {
-                console.log(foundRecipe)
-                res.redirect('/profile')
+    db.userKetoRecipe.update({
+        ketoRecipeLabel: req.body.ketoRecipeLabel
+    }, {
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(foundRecipe => {
+            console.log(foundRecipe)
+            res.redirect('/profile')
 
-            })
         })
+})
 
 
 

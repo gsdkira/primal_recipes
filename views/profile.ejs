@@ -3,13 +3,16 @@
 </h3>
 
 <h2>All Your Favorite Keto Recipes</h1>
+    <h4>
+        Edit the Name of the Recipe to Remind you Which One is your Favorite
+    </h4>
 
     <%foundUser.forEach(result=> {%>
         <div class ="well">
         <ul>
+            <div class="list-group">
             <li>
-              
-                <a href="<%=result.ketoRecipeUrl%>" target="_blank">
+                <a href="<%=result.ketoRecipeUrl%>" class="list-group-item list-group-item-action list-group-item-light" target="_blank">
                     <%=result.ketoRecipeLabel%>
                 </a>
                 <form action="/profile/<%= result.id%>/?_method=DELETE" method="POST">
