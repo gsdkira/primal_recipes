@@ -16,7 +16,7 @@ router.get('/results', isLoggedIn, function (req, res) {
             // console.log(apiResults.data.hits)
             const results = apiResults.data.hits
             // console.log('these are the results', results)
-            res.render('ketoRecipes/ketoResults', { results: results})
+            res.render('ketoRecipes/ketoResults', { results: results })
         })
         .catch(error => {
             console.log(error)

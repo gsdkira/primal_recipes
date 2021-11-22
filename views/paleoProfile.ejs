@@ -1,10 +1,12 @@
-<h2>
+<h3>
     <%= currentUser.name %>'s Profile
-</h2>
+</h3>
 
-<h1>All Your Favorite Paleo Recipes</h1>
+<h2>All Your Favorite Paleo Recipes</h2>
 
     <%paleoFoundUser.forEach(paleoResult=> {%>
+        <div class ="well">
+        
         <ul>
             <li>
                 <a href="<%=paleoResult.paleoRecipeUrl%>" target="_blank">
@@ -23,4 +25,5 @@
 
             </li>
         </ul>
+        </div>
         <%})%>

@@ -57,18 +57,18 @@ router.delete('/:id', isLoggedIn, (req, res) => {
 //this is to put edited recipe name to favorite list
 router.put('/:id', isLoggedIn, (req, res) => {
     console.log(req.body)
-            db.userPaleoRecipe.update({
-                paleoRecipeLabel: req.body.paleoRecipeLabel
-            }, {
-                where: {
-                    id: req.params.id
-                }
-            })
-            .then(foundPaleoRecipe => {
-                console.log(foundPaleoRecipe)
-                res.redirect('/paleoProfile')
+    db.userPaleoRecipe.update({
+        paleoRecipeLabel: req.body.paleoRecipeLabel
+    }, {
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(foundPaleoRecipe => {
+            console.log(foundPaleoRecipe)
+            res.redirect('/paleoProfile')
 
-            })
         })
+})
 
 module.exports = router

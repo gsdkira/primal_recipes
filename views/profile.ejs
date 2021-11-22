@@ -1,12 +1,14 @@
-<h2>
+<h3>
     <%= currentUser.name %>'s Profile
-</h2>
+</h3>
 
-<h1>All Your Favorite Keto Recipes</h1>
-<div>
+<h2>All Your Favorite Keto Recipes</h1>
+
     <%foundUser.forEach(result=> {%>
+        <div class ="well">
         <ul>
             <li>
+              
                 <a href="<%=result.ketoRecipeUrl%>" target="_blank">
                     <%=result.ketoRecipeLabel%>
                 </a>
@@ -22,6 +24,7 @@
 
             </li>
         </ul>
+    </div>
         <%})%>
-</div>
+
 
