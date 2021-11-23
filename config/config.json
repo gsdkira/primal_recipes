@@ -3,6 +3,7 @@
     "database": "primal_recipes_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
+    
   },
   "test": {
     "database": "primal_recipes_test",
@@ -10,8 +11,6 @@
     "dialect": "postgres"
   },
   "production": {
-    "database": "primal_recipes_production",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "use_env_variable": "DATABASE_URL"
   }
 }

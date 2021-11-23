@@ -16,7 +16,7 @@ app.set('view engine', 'ejs') //ejs
 app.use(ejsLayouts) //layouts
 
 // body parser middelware
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 
 // session middleware
@@ -50,12 +50,12 @@ app.use('/paleoProfile', require('./controllers/paleoUserProfile'))
 
 
 // home route
-app.get('/', (req, res)=>{
+app.get('/', (req, res) => {
     res.render('home')
 })
 
 
-app.listen(3000, ()=>{
+app.listen(process.env.PORT || 3000, () => {
     console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)
     console.log("auth_practice running on port 3000")
 })
