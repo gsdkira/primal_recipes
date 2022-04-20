@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <title>Primal Recipe Collector</title>
 </head>
 
@@ -19,9 +19,9 @@
 
 
     <header>
-      <nav>
+      <nav class="navbar avbar-expand-lg navbar-light bg-light"">
         <ul>
-          <li><a href="/">Home</a></li>
+          <a class="navbar-brand" href="/">Home</a>
           <% if (!currentUser) { %>
             <li><a href="/auth/signup">Signup</a></li>
             <li><a href="/auth/login">Login</a></li>
@@ -31,7 +31,8 @@
               <li><a href="/paleoProfile">Paleo Recipe Collection</a></li>
               <% } %>
         </ul>
-      </nav </header>
+      </nav >
+    </header>
       <%- include('partials/alerts') %>
         <%- body %>
 </body>

@@ -15,7 +15,7 @@ router.get('/', isLoggedIn, (req, res) => {
         .then(foundUser => {
             console.log(foundUser)
             res.render('profile', { foundUser })
-            // console.log(recipe)
+            console.log(recipe)
         })
 })
 

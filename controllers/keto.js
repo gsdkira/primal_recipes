@@ -35,7 +35,7 @@ router.post('/results', isLoggedIn, (req, res) => {
     db.userKetoRecipe.create({
         ketoRecipeLabel: req.body.recipeLabel,
         ketoRecipeUrl: req.body.recipeUrl,
-        userId: res.locals.currentUser.id
+        userId: res.locals.currentUser.id,
         // console.log(req.body.recipeLabel)
         // console.log(req.body.recipeUrl)
     })
