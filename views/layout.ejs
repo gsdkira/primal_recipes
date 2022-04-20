@@ -20,17 +20,17 @@
 
     <header>
       <nav class="navbar avbar-expand-lg navbar-light bg-light"">
-        <ul>
-          <a class="navbar-brand" href="/">Home</a>
+        <div class="navbar-nav">
+          <a class="navbar-brand" href="/">Home <span class="sr-only"></span></a>
           <% if (!currentUser) { %>
-            <li><a href="/auth/signup">Signup</a></li>
-            <li><a href="/auth/login">Login</a></li>
+            <a class="nav-link" href="/auth/signup">Signup</a>
+            <a class="nav-link" href="/auth/login">Login</a>
             <% } else { %>
-              <li><a href="/auth/logout">Logout</a></li>
-              <li><a href="/profile">Keto Recipe Collection</a></li>
-              <li><a href="/paleoProfile">Paleo Recipe Collection</a></li>
+              <a class="nav-link" href="/auth/logout">Logout</a>
+              <a class="nav-link" href="/profile">Keto Recipe Collection</a>
+              <a class="nav-link" href="/paleoProfile">Paleo Recipe Collection</a>
               <% } %>
-        </ul>
+            </div>
       </nav >
     </header>
       <%- include('partials/alerts') %>
