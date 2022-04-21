@@ -20,9 +20,10 @@
 
     <header>
       
-      <nav class="navbar navbar-expand navbar-light " style="background-color: #d4ebe2;"">
+      <nav class="navbar navbar-expand navbar-light nav-fill " style="background-color: #d4ebe2;"">
         <div class="navbar-nav">
-          <a class="navbar-brand" href="/">Home <span class="sr-only"></span></a>
+          <a class="navbar-brand" href="/"><img src= "/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Letter P Icon"></a>
+          <a class="navbar-brand" href="/">Home<span class="sr-only"></span></a>
           <% if (!currentUser) { %>
             <a class="nav-link" href="/auth/signup">Signup</a>
             <a class="nav-link" href="/auth/login">Login</a>
@@ -31,7 +32,7 @@
               <a class="nav-link" href="/profile">Keto Recipe Collection</a>
               <a class="nav-link" href="/paleoProfile">Paleo Recipe Collection</a>
               <% } %>
-              <span class="navbar-text">
+              <span class="navbar-text justify-content-end">
                 Primal Recipes Collector
               </span>
             </div>

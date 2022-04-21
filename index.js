@@ -48,11 +48,14 @@ app.use('/profile', require('./controllers/userProfile'))
 app.use('/paleo', require('./controllers/paleo'))
 app.use('/paleoProfile', require('./controllers/paleoUserProfile'))
 
+app.use( express.static( "public" ) )
 
 // home route
 app.get('/', (req, res) => {
     res.render('home')
 })
+
+
 
 
 app.listen(process.env.PORT || 3000, () => {
