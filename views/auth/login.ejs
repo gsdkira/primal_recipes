@@ -1,15 +1,17 @@
 <div class="container-fluid">
-<h2>Login</h2>
+    <h2>Login</h2>
 
-<div class ="well">
-<form action="/auth/login" method="POST">
-    <label for="auth-email">Email</label>
-    <input id="auth-email" type="email" name="email">
-  
-    <label for="auth-password">Password</label>
-    <input id="auth-password" type="password" name="password">
-  
-    <input type="submit" value="Log In">
-</form>
-</div>
+    <div class="well">
+        <form class="form-inline" action="/auth/login" method="POST">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1" for="auth-email">Email</span>
+                    <input class="form-control" id="auth-email" type="email" name="email">
+                </div>
+                <label for="auth-password">Password</label>
+                <input id="auth-password" type="password" name="password">
+
+                <input type="submit" value="Log In">
+        </form>
+    </div>
 </div>
