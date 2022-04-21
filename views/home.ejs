@@ -5,14 +5,15 @@
                 background-repeat: no-repeat;
                 background-size: cover;
                 height: 100vh">
-    <div class="card bg-light text-black border-success mb-3" style= "width: 60%; height: 50%;">
+    <!-- <div class="card bg-light text-black border-success mb-3 col d-flex justify-content-center"" style= "width: 60%; height: 50%;"> -->
 <% if(!currentUser) {%>
-<h2 class="card-title">Welcome to Primal Recipes Collector</h2>
-<h3 class="card-text">Please Sign in to Save Recipes</h3>
+<div class="justify-text-center">
+<h2 >Welcome to Primal Recipes Collector</h2>
+<h3 >Please Sign in to Save Recipes</h3>
 <% } else { %>
 
-    <h2 class="card-title">Primal Recipes Collector</h2>
-        <h4 class="card-text">
+    <h2 >Primal Recipes Collector</h2>
+        <h4>
             Save your Favorite Keto and Paleo Recipes to your Collection
         </h4>
         <h4>
