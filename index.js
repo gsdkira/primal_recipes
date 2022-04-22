@@ -41,6 +41,8 @@ app.use((req, res, next) => {
     next()
 })
 
+app.use( express.static( "public" ) )
+
 // controllers middleware 
 app.use('/auth', require('./controllers/auth'))
 app.use('/keto', require('./controllers/keto'))
@@ -48,7 +50,7 @@ app.use('/profile', require('./controllers/userProfile'))
 app.use('/paleo', require('./controllers/paleo'))
 app.use('/paleoProfile', require('./controllers/paleoUserProfile'))
 
-app.use( express.static( "public" ) )
+
 
 // home route
 app.get('/', (req, res) => {
