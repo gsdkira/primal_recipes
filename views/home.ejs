@@ -1,22 +1,21 @@
 <div class="container">
-    <div class="bg-image" style="background-image: url('https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    <!-- <div class="bg-image" style="background-image: url('https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
                 height: 500px;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
-                height: 100vh">
+                height: 100vh"> -->
     <!-- <div class="card bg-light text-black border-success mb-3 col d-flex justify-content-center"" style= "width: 60%; height: 50%;"> -->
 <% if(!currentUser) {%>
 
-<div class="container">
-    <div class="jumbotron jumbotron-fluid">
-<h2 class="display-9">Welcome to Primal Recipes Collector</h2>
-<p class="lead">Please Sign in to Save Recipes</p>
+    <div class="jumbotron jumbotron-fluid" style="background: url('https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+        <div class="container-fluid text-center">
+        <h2 class="display-3">Welcome to Primal Recipes Collector</h2>
+<p class="lead pb-4">Please Sign in to Save Recipes</p>
 <hr class="my-4">
 <p>Sign in here</p>
-  <p class="lead">
-    <a class="nav-link" href="/auth/login">Login</a>
-  </p>
+    <p><a href="/auth/login" class="btn btn-primary btn-lg" style="background-color: #c60063;  border-color: #c60063;"role="button">Learn More</a></p>
+</div>
 </div>
 </div>
 <% } else { %>

@@ -22,12 +22,13 @@
       
       <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #d4ebe2;">
         <div class="container">
-          <a class="navbar-brand" href="/"><img src= "/images/logo.png" width="25" height="25" class="d-inline-block align-top" alt="Letter P Icon">rimal Kitchen Recipe Collector</a>
-          <a class="navbar-brand" href="/"><span class="sr-only"></span></a>
+          <a class="navbar-brand" href="/"><img src= "/images/logo.png" width="25" height="25" class="d-inline-block align-top" alt="Letter P Icon">rimal Recipe Collector</a>
+          <!-- <a class="navbar-brand" href="/"><span class="sr-only"></span></a> -->
           <% if (!currentUser) { %>
             <a class="nav-link" href="/auth/signup">Signup</a>
             <a class="nav-link" href="/auth/login">Login</a>
             <% } else { %>
+              <a class="navbar-brand" href="/">Home</a>
               <a class="nav-link" href="/auth/logout">Logout</a>
               <a class="nav-link" href="/profile">Keto Recipe Collection</a>
               <a class="nav-link" href="/paleoProfile">Paleo Recipe Collection</a>
