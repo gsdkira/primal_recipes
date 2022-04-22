@@ -7,11 +7,16 @@
                 height: 100vh">
     <!-- <div class="card bg-light text-black border-success mb-3 col d-flex justify-content-center"" style= "width: 60%; height: 50%;"> -->
 <% if(!currentUser) {%>
-<div class="justify-text-center">
-    <div class="jumbotron jumbotron-fluid bg-transparent">
-        <div class="container"></div>
-<h2 class="display-4">Welcome to Primal Recipes Collector</h2>
+
+<div class="container">
+    <div class="jumbotron jumbotron-fluid">
+<h2 class="display-9">Welcome to Primal Recipes Collector</h2>
 <p class="lead">Please Sign in to Save Recipes</p>
+<hr class="my-4">
+<p>Sign in here</p>
+  <p class="lead">
+    <a class="nav-link" href="/auth/login">Login</a>
+  </p>
 </div>
 </div>
 <% } else { %>
